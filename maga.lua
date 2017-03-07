@@ -401,11 +401,7 @@ function search(str)
 
 	local augs = extdata.search_aug(str:lower())
 	
-	if augs:length() > 50 then 
-		warning("Matched too many augments!")
-	else
-		notice("Matched the following augments: " .. augs:concat(", "))
-	end
+	notice("Matched the following augments: " .. augs:concat(", "))
 	
 
 end
@@ -414,8 +410,8 @@ function add_aug(aug,val,set)
 	
 	if not augments[set] then error('Augment set #%d does not currently exist.':format(set)) return end
 
-	if augments:length() >= 5 and not augments:containskey(aug) then
-		error("No more than 5 augments can be compared.")
+	if augments:length() >= 6 and not augments:containskey(aug) then
+		error("No more than 6 augments can be compared.")
 	else
 		augments[set][aug] = val
 		notice("[%s] = %s":format(aug,val))
