@@ -9,7 +9,7 @@
     -- * Redistributions in binary form must reproduce the above copyright
       -- notice, this list of conditions and the following disclaimer in the
       -- documentation and/or other materials provided with the distribution.
-    -- * Neither the name of Oseem nor the
+    -- * Neither the name of MAGA nor the
       -- names of its contributors may be used to endorse or promote products
       -- derived from this software without specific prior written permission.
 
@@ -24,9 +24,9 @@
 -- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 -- SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-_addon.name = 'oseem'
+_addon.name = 'MAGA'
 _addon.author = 'Cair'
-_addon.commands = {'oseem'}
+_addon.commands = {'MAGA'}
 _addon.version = '1.0.0.0'
 
 packets = require('packets')
@@ -125,9 +125,9 @@ windower.register_event('incoming chunk', function(id,data)
 			if p['Menu ID'] == 9507 then
 				status.gear = p['Menu Parameters']:byte(5)
 				warning('The menu has been disabled for trading. If you attempt to act without first exiting this interaction appropriately, you may soft lock!')
-				notice('Type //oseem style [magic|melee|familiar|healing|ranged] to select an augmentation style.')
-				notice('Type //oseem start to begin augmenting.')
-				notice('Type //oseem stop to stop at any time.')
+				notice('Type //maga style [magic|melee|familiar|healing|ranged] to select an augmentation style.')
+				notice('Type //maga start to begin augmenting.')
+				notice('Type //maga stop to stop at any time.')
 				return true
 			
 			end
@@ -144,7 +144,7 @@ windower.register_event('incoming chunk', function(id,data)
 			for k,v in pairs(results) do
 				log(k .. ' ' .. v)
 			end
-			notice("Type //oseem accept, //oseem continue, or //oseem cancel.")
+			notice("Type //maga accept, //maga continue, or //maga cancel.")
 		elseif settings.debug then
 			notice("Didn't match the following: ")
 			for k,v in pairs(results) do
@@ -243,7 +243,7 @@ function start(style)
 end
 
 function stop()
-	notice("Stopping augmentation process! Type //oseem cancel to receive your original item or //oseem accept to receive the most recent augment.")
+	notice("Stopping augmentation process! Type //maga cancel to receive your original item or //maga accept to receive the most recent augment.")
 	status.finished = true
 end
 
@@ -564,7 +564,7 @@ end
 
 function help()
 
-	print('Oseem will automatically augment items for you after you trade them to Oseem.')
+	print('MAGA will automatically augment items for you after you trade them to Oseem.')
 	print('No menu will appear, don\'t panic!')
 	print('Command listing: ')
 	print(' - help   : displays this help text')
