@@ -1,5 +1,5 @@
 **Author:**  Cairthenn<br>
-**Version:**  1.0<br>
+**Version:**  1.0.0.1<br>
 **Date:** March 6, 2017<br>
 
 # MAGA (Make Augments Great Again) #
@@ -37,5 +37,6 @@
 15. load &lt;profile name&gt; : Loads 'profile name' to the current augment specification
 16. newset : Creates an additional augment set to compare against
 17. delset &lt;set number&gt; : Deletes the specified augment set #
+18. delay &lt;#&gt; : Sets the delay between augments to #. There is no minimum, but 5 is the maximum.
 
 --
