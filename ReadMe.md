@@ -5,6 +5,7 @@
 # Oseem #
 
 * After trading a piece of armor to Oseem, the addon will automatically expend stones (as specified) to augment your armor until augments that equal or are greater than your specified augments appear.
+* If you have created more than one augment set to compare against, it will stop if it matches the minimum specified augments in ANY set.
 * This uses a custom version of extdata for augment handling and user readability. Any augment in the extdata.lua file in this addon folder may be specified.
 * Please note that there is NO menu for Oseem while using this addon, and Oseem will retain your gear until (1) you exit the interaction using the 'cancel' or 'accept' sub-command, (2) you run out of stones, or (3) you unload the addon.
 * If you use this addon responsibly, your results will be positive. I am not responsible for any lost augments or lost armor for any uninformed or irresponsible use.
