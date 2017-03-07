@@ -35,6 +35,7 @@ extdata = require('extdata')
 require('logger')
 
 defaults = {
+delay = .75,
 debug = false,
 pellucid = true,
 taupe = true,
@@ -227,7 +228,8 @@ function start(style)
 					notice("You ran out of stones!")
 					cancel()
 					break
-				end				
+				end			
+				coroutine.sleep(settings.delay)
 			else
 				notice("The selected gear cannot be augmented with : ".. settings.style ..'. Choose a valid style and start again.')
 				cancel()
