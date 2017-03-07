@@ -2,7 +2,7 @@
 **Version:**  1.0<br>
 **Date:** March 6, 2017<br>
 
-# Oseem #
+# MAGA (Make Augments Great Again) #
 
 * After trading a piece of armor to Oseem, the addon will automatically expend stones (as specified) to augment your armor until augments that equal or are greater than your specified augments appear.
 * If you have created more than one augment set to compare against, it will stop if it matches the minimum specified augments in ANY set.
