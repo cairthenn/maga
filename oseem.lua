@@ -124,7 +124,7 @@ windower.register_event('incoming chunk', function(id,data)
 			
 			if p['Menu ID'] == 9507 then
 				status.gear = p['Menu Parameters']:byte(5)
-				warning('The menu has been disabled for trading. If you attempt to act without first exiting this interaction appropriately, you may freeze!')
+				warning('The menu has been disabled for trading. If you attempt to act without first exiting this interaction appropriately, you may soft lock!')
 				notice('Type //oseem style [magic|melee|familiar|healing|ranged] to select an augmentation style.')
 				notice('Type //oseem start to begin augmenting.')
 				notice('Type //oseem stop to stop at any time.')
@@ -132,7 +132,7 @@ windower.register_event('incoming chunk', function(id,data)
 			
 			end
 		end
-	elseif id == 0x5c then
+	elseif id == 0x5c and status.gear then
 		local p = packets.parse('incoming', data)
 		
 		local newAugs = p['Menu Parameters']:sub(21)
