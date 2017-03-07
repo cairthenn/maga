@@ -27,7 +27,7 @@
 _addon.name = 'MAGA'
 _addon.author = 'Cair'
 _addon.commands = {'MAGA'}
-_addon.version = '1.0.0.0'
+_addon.version = '1.0.0.1'
 
 packets = require('packets')
 config = require('config')
@@ -558,6 +558,18 @@ function debug()
 	notice("Debug mode: %s":format(tostring(settings.debug)))
 end
 
+function delay(del)
+
+	del = del and tonumber(del) or nil
+	
+	if del then
+		settings.delay = math.min(math.abs(del),5)
+		notice("Delay between augments set to %.2f.":format(settings.delay))
+		settings:save('all')
+	end
+
+end
+
 function help()
 
 	print('MAGA will automatically augment items for you after you trade them to Oseem.')
@@ -597,6 +609,7 @@ handlers = {
 	save = save,
 	newset = newset,
 	delset = delset,
+	delay = delay,
 	load = load,
 	debug = debug
 }
