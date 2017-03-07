@@ -149,9 +149,9 @@ augment_values = {
         [0x093] = {{stat="Treasure Hunter", offset=1}},
         [0x094] = {{stat="Gilfinder", offset=1}},
         
-        [0x097] = {{stat='"Martial Arts"', offset=1}},
+        [0x097] = {{stat='Martial Arts', offset=1}},
         
-        [0x099] = {{stat='"Shield Mastery"', offset=1}},
+        [0x099] = {{stat='Shield Mastery', offset=1}},
         
         [0x0B0] = {{stat='Resist Sleep', offset=1}},
         [0x0B1] = {{stat='Resist Poison', offset=1}},
@@ -249,7 +249,7 @@ augment_values = {
         [0x161] = {{stat="TP Bonus", offset=1, multiplier=5}},
         [0x162] = {{stat="Quadruple Attack", offset=1}},
 
-        [0x164] = {{stat='Potency of "Cure" effect received', offset=1, percent=true}},
+        [0x164] = {{stat='Potency of Cure effect received', offset=1, percent=true}},
         
         [0x168] = {{stat="Save TP", offset=1, multiplier=10}},
         
@@ -310,7 +310,7 @@ augment_values = {
 
         -- 0x359 = 475
         [0x380] = {{stat="Sword enhancement spell damage", offset=1}},
-        [0x381] = {{stat='Enhances "Souleater" effect', offset=1,percent=true}},
+        [0x381] = {{stat='Enhances Souleater effect', offset=1,percent=true}},
         
         -- This is actually a range for static augments that uses all the bits.
 
