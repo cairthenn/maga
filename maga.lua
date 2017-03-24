@@ -59,6 +59,7 @@ pellucid = 0,
 gear = nil,
 paused = false,
 finished = false
+waiting_for_augment = false
 }
 
 constants = {
@@ -132,8 +133,10 @@ windower.register_event('incoming chunk', function(id,data)
 			
 			end
 		end
-	elseif id == 0x5c and status.gear then
-		local p = packets.parse('incoming', data)
+	elseif id == 0x5c and status.gear and status.waiting_for_augment then
+		status.waiting_for_augment = false
+        
+        local p = packets.parse('incoming', data)
 		
 		local newAugs = p['Menu Parameters']:sub(21)
 		local results = extdata.decode(newAugs)
@@ -262,6 +265,7 @@ function internal_augment(style,stone)
 	end
 	
 	status.paused = true
+    status.waiting_for_augment = true
 	
 	status[stone] = status[stone] - 1
 	
