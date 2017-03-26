@@ -58,7 +58,7 @@ fern = 0,
 pellucid = 0,
 gear = nil,
 paused = false,
-finished = false
+finished = false,
 waiting_for_augment = false
 }
 
