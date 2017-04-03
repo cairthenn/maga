@@ -13,8 +13,22 @@ require 'pack'
 
 local decode = {}
 
+function augment_filter(tab,key)
+    local check = rawget(tab, key)
+    return check or -1
+end
+
+local augment_meta = { 
+    __index =   function(tab,key)
+                    return rawget(tab, augment_filter(tab,key))
+                end
+}
+
+
+        
 
 augment_values = {
+        [-1]    = {{stat="unknown",offset=0}},
         [0x000] = {{stat="none",offset=0}},
         [0x001] = {{stat="HP", offset=1}},
         [0x002] = {{stat="HP", offset=33}},
@@ -340,6 +354,7 @@ augment_values = {
 }
 
 
+setmetatable(augment_values,augment_meta)
 
 -- TOOLS FOR HANDLING EXTDATA
 
