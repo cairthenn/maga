@@ -27,12 +27,14 @@
 _addon.name = 'MAGA'
 _addon.author = 'Cair'
 _addon.commands = {'MAGA'}
-_addon.version = '1.0.0.1'
+_addon.version = '1.0.0.2'
 
 packets = require('packets')
+texts = require('texts')
 config = require('config')
 extdata = require('extdata')
 require('logger')
+
 
 defaults = {
 delay = .75,
@@ -45,11 +47,39 @@ profiles = {
 	default = {}
 }
 }
-
+history = L{}
 augments = L{{}}
 
+defaults.display = {}
+defaults.display.pos = {}
+defaults.display.pos.x = 0
+defaults.display.pos.y = 0
+defaults.display.text = {}
+defaults.display.text.font = 'Consolas'
+defaults.display.text.size = 10
+defaults.display.text.alpha = 255
+defaults.display.text.red = 255
+defaults.display.text.green = 255
+defaults.display.text.blue = 255
+defaults.display.bg = {}
+defaults.display.bg.alpha = 192
+defaults.display.bg.red = 0
+defaults.display.bg.green = 0
+defaults.display.bg.blue = 0
+defaults.display.padding = 3
+
+text_base_string = L{
+    'Augment #: ${_index|-}',
+    '${_augment|-}',
+    }:concat('\n')
+    
 settings = config.load(defaults)
 
+maga_tb = texts.new(text_base_string,settings.display)
+maga_tb._index = history:length()
+maga_tb._augment = nil
+
+maga_tb:show()
 
 status = {
 
@@ -141,6 +171,8 @@ windower.register_event('incoming chunk', function(id,data)
 		local newAugs = p['Menu Parameters']:sub(21)
 		local results = extdata.decode(newAugs)
 		
+        history:append(results)
+        update_display()
 		
 		if compare_augments(results) then
 			notice("Stopped augmenting for the following: ")
@@ -158,6 +190,16 @@ windower.register_event('incoming chunk', function(id,data)
 		end
 	end
 end)
+
+function update_display(index)
+    if not index then
+        index = history:length()
+    end
+    
+    maga_tb._index = index
+    maga_tb._augment = history[tonumber(index)]
+
+end
 
 function compare_augments(comparison)
 
@@ -611,6 +653,7 @@ handlers = {
 	display = display,
 	help = help,
 	save = save,
+    history = update_display,
 	newset = newset,
 	delset = delset,
 	delay = delay,
