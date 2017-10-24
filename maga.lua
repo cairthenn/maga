@@ -244,6 +244,7 @@ end
 function start(style)
     if status.started then
         error('You have already started an augmentation process.')
+        return
     end
     
     status.started = true
