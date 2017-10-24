@@ -27,7 +27,7 @@
 _addon.name = 'MAGA'
 _addon.author = 'Cair'
 _addon.commands = {'MAGA'}
-_addon.version = '1.0.0.2'
+_addon.version = '1.0.0.3'
 
 packets = require('packets')
 texts = require('texts')
@@ -242,6 +242,12 @@ end
 
 
 function start(style)
+    if status.started then
+        error('You have already started an augmentation process.')
+    end
+    
+    status.started = true
+
 	if style and L{"melee","magic","familiar","ranged","healing"}:contains(style:lower()) then
 		settings.style = style:lower()
 	end
@@ -284,6 +290,8 @@ function start(style)
 			coroutine.sleep(.5)
 		end
 	end
+    
+    status.started = false
 
 end
 
