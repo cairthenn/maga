@@ -466,7 +466,7 @@ function add_aug(aug,val,set)
         error("No more than 6 augments can be compared.")
     else
         augments[set][aug] = val
-        notice("[%s] = %s":format(aug,val))
+        notice("Augment Set #%d : [%s] = %s":format(set,aug,val))
     end
 
 end
