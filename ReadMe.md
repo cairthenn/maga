@@ -15,7 +15,7 @@
 
 #### Settings ####
 
-* Oseem uses 'settings.xml' in its data folder for all settings.
+* MAGA uses 'settings.xml' in its data folder for all settings.
 * If you choose to edit this manually, this file uses **extdata.lua** in the main addon folder for augment naming schemes.
 
 
