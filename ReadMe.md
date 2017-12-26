@@ -1,5 +1,5 @@
 **Author:**  Cairthenn<br>
-**Version:**  1.0.0.3<br>
+**Version:**  1.0.0.4<br>
 **Date:** March 6, 2017<br>
 
 # MAGA (Make Augments Great Again) #
