@@ -27,7 +27,7 @@
 _addon.name = 'MAGA'
 _addon.author = 'Cair'
 _addon.commands = {'MAGA'}
-_addon.version = '1.0.0.3'
+_addon.version = '1.0.0.4'
 
 packets = require('packets')
 texts = require('texts')
@@ -243,6 +243,9 @@ function start(style)
         error('You have already started an augmentation process.')
         return
     end
+
+        
+    if not status.gear then return end
     
     status.started = true
 
@@ -252,8 +255,6 @@ function start(style)
 
     status.finished = false
     status.paused = false
-    
-    if not status.gear then return end
     
     notice("Starting augmentation process (%s)!":format(settings.style))
     notice("Pellucid [%s], Fern [%s], Taupe [%s]":format(tostring(settings.pellucid), tostring(settings.fern), tostring(settings.taupe)))
